@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>todo — task runner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-brand">
+      <span class="prompt">$</span> todo <span class="cursor">_</span>
+    </div>
+    <div class="topbar-meta">local · unsynced</div>
+  </header>
+
+  <main class="layout">
+
+    <!-- Sidebar: projects -->
+    <aside class="panel panel-projects">
+      <div class="panel-header">
+        <span class="panel-label">projects</span>
+      </div>
+
+      <div id="project-list" class="project-list"></div>
+
+      <form id="project-form" class="new-project-form">
+        <input type="text" id="project-name-input" placeholder="new-project/" autocomplete="off" />
+        <button type="submit" class="btn-icon" aria-label="Add project">+</button>
+      </form>
+    </aside>
+
+    <!-- Center: todos -->
+    <section class="panel panel-todos">
+      <div class="panel-header">
+        <span class="panel-label" id="current-project-label">todos</span>
+      </div>
+
+      <div id="todo-list" class="todo-list"></div>
+
+      <div id="todo-form" class="todo-form-wrap">
+        <form action="">
+          <input type="text" id="title-input" placeholder="title" autocomplete="off" required />
+          <input type="text" id="description-input" placeholder="description" autocomplete="off" />
+          <input type="date" id="dueDate-input" />
+          <select id="priority-input">
+            <option value="low">low</option>
+            <option value="medium" selected>medium</option>
+            <option value="high">high</option>
+          </select>
+          <input type="submit" value="add" class="btn-primary" />
+        </form>
+      </div>
+    </section>
+
+    <!-- Right: detail -->
+    <aside class="panel panel-detail" id="detail-panel">
+      <div class="panel-header">
+        <span class="panel-label">detail</span>
+      </div>
+      <div id="todo-detail" class="todo-detail">
+        <p class="empty-state">select a todo to view its details</p>
+      </div>
+    </aside>
+
+  </main>
+
+  <script src="dom.js"></script>
+</body>
+</html>
